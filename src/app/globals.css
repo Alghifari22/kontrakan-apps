@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --ink: #172033;
+  --muted: #586579;
+  --line: #dce3ec;
+  --blue: #1d4ed8;
+  --surface: #ffffff;
+  --canvas: #f3f6fb;
+}
+
+* { box-sizing: border-box; }
+html { background: var(--canvas); }
+body {
+  margin: 0;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+button, input { font: inherit; }
+button {
+  cursor: pointer;
+  border: 1px solid #cbd5e1;
+  background-color: #f8fafc;
+  color: #1e293b;
+  transition: background-color .15s ease, border-color .15s ease, color .15s ease, box-shadow .15s ease;
+}
+button[class*="bg-blue-700"], button[class*="bg-blue-800"], button[class*="bg-blue-900"] { border-color: #1d4ed8; background-color: #1d4ed8; color: #fff; }
+button[class*="bg-blue-700"]:hover, button[class*="bg-blue-800"]:hover, button[class*="bg-blue-900"]:hover { border-color: #1e3a8a; background-color: #1e3a8a; color: #fff; }
+button[class*="bg-emerald-700"], button[class*="bg-emerald-800"] { border-color: #047857; background-color: #047857; color: #fff; }
+button[class*="bg-emerald-700"]:hover, button[class*="bg-emerald-800"]:hover { border-color: #065f46; background-color: #065f46; color: #fff; }
+button[class*="bg-rose-"] { border-color: #fda4af; background-color: #fff1f2; color: #881337; }
+button[class*="bg-rose-"]:hover { border-color: #fb7185; background-color: #ffe4e6; color: #881337; }
+button:focus-visible { outline: 3px solid #93c5fd; outline-offset: 2px; }
+button:disabled { cursor: not-allowed; opacity: .6; }
+.sans { font-family: Arial, Helvetica, sans-serif; }
+::selection { background: #bfdbfe; color: #172033; }
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #e5edf7;
+  --muted: #9aa9bd;
+  --line: #2a3a50;
+  --surface: #111c2e;
+  --canvas: #0b1220;
+}
+
+html[data-theme="dark"],
+html[data-theme="dark"] body { background: var(--canvas); color: var(--ink); }
+
+html[data-theme="dark"] [class~="bg-white"],
+html[data-theme="dark"] [class~="bg-white/95"] { background-color: #111c2e !important; }
+html[data-theme="dark"] [class~="bg-[#f4f6fa]"],
+html[data-theme="dark"] [class~="bg-[#eef3f9]"],
+html[data-theme="dark"] [class~="bg-slate-50"],
+html[data-theme="dark"] [class~="bg-gray-50"] { background-color: #0b1220 !important; }
+html[data-theme="dark"] [class~="bg-slate-100"],
+html[data-theme="dark"] [class~="bg-gray-100"] { background-color: #1b293d !important; }
+
+html[data-theme="dark"] [class*="text-slate-950"],
+html[data-theme="dark"] [class*="text-slate-900"],
+html[data-theme="dark"] [class*="text-gray-900"] { color: #f1f5f9 !important; }
+html[data-theme="dark"] [class*="text-slate-800"],
+html[data-theme="dark"] [class*="text-slate-700"],
+html[data-theme="dark"] [class*="text-gray-800"],
+html[data-theme="dark"] [class*="text-gray-700"] { color: #d4deeb !important; }
+html[data-theme="dark"] [class*="text-slate-600"],
+html[data-theme="dark"] [class*="text-slate-500"],
+html[data-theme="dark"] [class*="text-gray-600"],
+html[data-theme="dark"] [class*="text-gray-500"] { color: #9aa9bd !important; }
+
+html[data-theme="dark"] [class*="border-slate-100"],
+html[data-theme="dark"] [class*="border-slate-200"],
+html[data-theme="dark"] [class*="border-slate-300"],
+html[data-theme="dark"] [class*="border-gray-200"] { border-color: #2a3a50 !important; }
+
+html[data-theme="dark"] [class*="bg-blue-50"] { background-color: #102b4d !important; }
+html[data-theme="dark"] [class*="bg-blue-100"] { background-color: #183b63 !important; }
+html[data-theme="dark"] [class*="text-blue-950"],
+html[data-theme="dark"] [class*="text-blue-900"],
+html[data-theme="dark"] [class*="text-blue-800"] { color: #a8d0ff !important; }
+html[data-theme="dark"] [class*="border-blue-100"],
+html[data-theme="dark"] [class*="border-blue-200"] { border-color: #28517c !important; }
+
+html[data-theme="dark"] [class*="bg-emerald-50"] { background-color: #0e332e !important; }
+html[data-theme="dark"] [class*="bg-emerald-100"] { background-color: #16483e !important; }
+html[data-theme="dark"] [class*="text-emerald-950"],
+html[data-theme="dark"] [class*="text-emerald-900"],
+html[data-theme="dark"] [class*="text-emerald-800"] { color: #9be7cc !important; }
+html[data-theme="dark"] [class*="border-emerald-200"] { border-color: #276653 !important; }
+
+html[data-theme="dark"] [class*="bg-amber-50"] { background-color: #382a13 !important; }
+html[data-theme="dark"] [class*="bg-amber-100"] { background-color: #4a3618 !important; }
+html[data-theme="dark"] [class*="text-amber-950"],
+html[data-theme="dark"] [class*="text-amber-900"] { color: #f6d28b !important; }
+html[data-theme="dark"] [class*="border-amber-200"] { border-color: #725323 !important; }
+
+html[data-theme="dark"] [class*="bg-rose-50"] { background-color: #3d1d2b !important; }
+html[data-theme="dark"] [class*="bg-rose-100"] { background-color: #512335 !important; }
+html[data-theme="dark"] [class*="text-rose-950"],
+html[data-theme="dark"] [class*="text-rose-900"],
+html[data-theme="dark"] [class*="text-rose-800"] { color: #ffb4c2 !important; }
+html[data-theme="dark"] [class*="border-rose-200"],
+html[data-theme="dark"] [class*="border-rose-300"] { border-color: #793449 !important; }
+
+html[data-theme="dark"] [class*="bg-violet-100"] { background-color: #34264f !important; }
+html[data-theme="dark"] [class*="text-violet-800"] { color: #d0b8ff !important; }
+html[data-theme="dark"] input:not([type="checkbox"]),
+html[data-theme="dark"] select,
+html[data-theme="dark"] textarea { background-color: #0e1828; color: #e5edf7; border-color: #40516a; }
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder { color: #91a0b5; }
+html[data-theme="dark"] input[type="checkbox"] { accent-color: #60a5fa; }
+html[data-theme="dark"] [class*="hover:bg-slate-50"]:hover,
+html[data-theme="dark"] [class*="hover:bg-slate-100"]:hover { background-color: #223249 !important; }
+html[data-theme="dark"] [class*="shadow-"] { --tw-shadow-color: rgb(0 0 0 / .28); }
+html[data-theme="dark"] button:not([class*="bg-blue-"]):not([class*="bg-emerald-"]):not([class*="bg-rose-"]) { border-color: #40516a; }
+html[data-theme="dark"] button[class*="bg-blue-700"],
+html[data-theme="dark"] button[class*="bg-blue-800"],
+html[data-theme="dark"] button[class*="bg-blue-900"] { color: #fff !important; }
