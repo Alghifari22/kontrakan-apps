@@ -23,6 +23,9 @@ body {
   text-rendering: optimizeLegibility;
 }
 button, input { font: inherit; }
+form, fieldset, article, section, .grid > * { min-width: 0; }
+input, select, textarea { box-sizing: border-box; max-width: 100%; }
+input[type="file"] { overflow: hidden; }
 button {
   cursor: pointer;
   border: 1px solid #cbd5e1;
@@ -123,3 +126,10 @@ html[data-theme="dark"] button:not([class*="bg-blue-"]):not([class*="bg-emerald-
 html[data-theme="dark"] button[class*="bg-blue-700"],
 html[data-theme="dark"] button[class*="bg-blue-800"],
 html[data-theme="dark"] button[class*="bg-blue-900"] { color: #fff !important; }
+
+button[aria-busy="true"] { cursor: progress; filter: saturate(.82); }
+button[aria-busy="true"] span { white-space: nowrap; }
+@media (max-width: 380px) {
+  input[type="file"] { font-size: .75rem; }
+  input[type="file"]::file-selector-button { max-width: 48%; margin-right: .5rem; padding-inline: .5rem; font-size: .75rem; }
+}

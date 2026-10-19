@@ -1,5 +1,6 @@
 import { signIn } from "@/app/login/actions";
 import ThemeToggle from "@/components/theme-toggle";
+import LoadingSubmitButton from "@/components/loading-submit-button";
 
 export default async function LoginPage({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
   const { error } = await searchParams;
@@ -25,7 +26,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
           <p className="relative text-sm text-blue-100">Akses khusus penghuni rumah.</p>
         </aside>
 
-        <section className="flex items-center px-6 py-10 sm:px-12 lg:px-14">
+        <section className="flex min-w-0 items-center px-5 py-10 sm:px-12 lg:px-14">
           <div className="mx-auto w-full max-w-md">
             <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-xl font-bold text-blue-800 lg:hidden">K</div>
             <p className="text-sm font-bold text-blue-800">MASUK KE AKUN</p>
@@ -34,12 +35,12 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
             {message && <p role="alert" className="mt-6 rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm font-semibold leading-6 text-rose-900">{message}</p>}
             <form className="mt-9 space-y-5" action={signIn}>
               <label className="block text-sm font-bold text-slate-800">Alamat email
-                <input required name="email" autoComplete="email" type="email" placeholder="nama@email.com" className="mt-2 min-h-[52px] w-full rounded-xl border-2 border-slate-300 bg-white px-4 py-3 text-base font-normal text-slate-950 outline-none placeholder:text-slate-500 focus:border-blue-700 focus:ring-4 focus:ring-blue-100" />
+                <input required name="email" autoComplete="email" type="email" placeholder="nama@email.com" className="mt-2 block min-h-[52px] w-full min-w-0 max-w-full rounded-xl border-2 border-slate-300 bg-white px-4 py-3 text-base font-normal text-slate-950 outline-none placeholder:text-slate-500 focus:border-blue-700 focus:ring-4 focus:ring-blue-100" />
               </label>
               <label className="block text-sm font-bold text-slate-800">Kata sandi
-                <input required name="password" autoComplete="current-password" type="password" placeholder="Masukkan kata sandi" className="mt-2 min-h-[52px] w-full rounded-xl border-2 border-slate-300 bg-white px-4 py-3 text-base font-normal text-slate-950 outline-none placeholder:text-slate-500 focus:border-blue-700 focus:ring-4 focus:ring-blue-100" />
+                <input required name="password" autoComplete="current-password" type="password" placeholder="Masukkan kata sandi" className="mt-2 block min-h-[52px] w-full min-w-0 max-w-full rounded-xl border-2 border-slate-300 bg-white px-4 py-3 text-base font-normal text-slate-950 outline-none placeholder:text-slate-500 focus:border-blue-700 focus:ring-4 focus:ring-blue-100" />
               </label>
-              <button type="submit" style={{ backgroundColor: "#1d4ed8", color: "#ffffff", border: "2px solid #1d4ed8" }} className="min-h-[52px] w-full rounded-xl px-5 py-3 text-base font-bold !text-white shadow-md shadow-blue-200 transition hover:!border-blue-900 hover:!bg-blue-900 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-blue-300">Masuk ke dashboard</button>
+              <LoadingSubmitButton style={{ backgroundColor: "#1d4ed8", color: "#ffffff", border: "2px solid #1d4ed8" }} className="min-h-[52px] w-full rounded-xl px-5 py-3 text-base font-bold !text-white shadow-md shadow-blue-200 transition hover:!border-blue-900 hover:!bg-blue-900 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-blue-300" pendingText="Sedang masuk…">Masuk ke dashboard</LoadingSubmitButton>
             </form>
             <div className="mt-7 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-center text-sm text-slate-600">Belum punya akun? <span className="font-semibold text-slate-800">Hubungi admin rumah.</span></div>
           </div>

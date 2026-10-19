@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Moon, Sun } from "lucide-react";
 
 type Theme = "light" | "dark";
 
@@ -29,7 +30,7 @@ export default function ThemeToggle() {
       title={`Aktifkan mode ${theme === "dark" ? "terang" : "gelap"}`}
       className="inline-flex min-h-10 items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm font-bold text-slate-800 shadow-sm hover:bg-slate-50"
     >
-      <span aria-hidden="true">{theme === "dark" ? "☀" : "☾"}</span>
+      {theme === "dark" ? <Sun size={17} aria-hidden="true" /> : <Moon size={17} aria-hidden="true" />}
       <span className="hidden sm:inline">{theme === "dark" ? "Mode terang" : "Mode gelap"}</span>
     </button>
   );
